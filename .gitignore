@@ -221,7 +221,6 @@ __marimo__/
 
 # datathon
 data/
-*.csv
 *.xslx
 *.parquet
 .ipynb_checkpoints/
