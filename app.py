@@ -1,7 +1,8 @@
 """Low Water Crossing Risk - demo app.
 
 Run from the repo folder:  streamlit run app.py
-Needs data/processed/crossings.csv (from 01_clean.ipynb) and vlm_config.py pointing at the GB10.
+Needs data/processed/crossings.csv and vlm_config.py. Reads generated briefs.csv when present;
+interactive model responses are saved separately in interactive_briefs.csv.
 """
 from pathlib import Path
 
@@ -11,8 +12,9 @@ from openai import OpenAI
 
 from vlm_config import API_KEY, BASE_URL, MODEL
 
-DATA = Path("data/processed")
+DATA = Path(__file__).resolve().parent / "data" / "processed"
 BRIEFS = DATA / "briefs.csv"
+INTERACTIVE_BRIEFS = DATA / "interactive_briefs.csv"
 TIERS = [("Top 10: check first", 10, "#A32D2D"), ("Next 30: check soon", 40, "#EF9F27"),
          ("Lower priority", 999, "#888780")]
 
@@ -28,10 +30,42 @@ def load_crossings():
 
 
 def load_briefs():
+    briefs = {}
     if BRIEFS.exists():
-        b = pd.read_csv(BRIEFS)
-        return {(r.CartID, r.audience, r.language): r.brief for r in b.itertuples()}
-    return {}
+        b = pd.read_csv(BRIEFS, keep_default_na=False)
+
+        # Batch-generated briefs have one row per crossing and fixed language columns.
+        if {"CartID", "warning_en", "warning_es", "maintenance_suggestion"}.issubset(b.columns):
+            for r in b.itertuples(index=False):
+                en = str(r.warning_en).strip()
+                es = str(r.warning_es).strip()
+                maintenance = str(r.maintenance_suggestion).strip()
+                if en:
+                    briefs[(r.CartID, "Residents", "English")] = en
+                if es:
+                    briefs[(r.CartID, "Residents", "Spanish")] = es
+                if en or es:
+                    both = [en] if en else []
+                    if es:
+                        both.append(f"Español\n{es}")
+                    briefs[(r.CartID, "Residents", "Both")] = "\n\n".join(both)
+                if maintenance:
+                    briefs[(r.CartID, "Public Works crew", "English")] = maintenance
+
+        # Read the older long format for compatibility with previously saved briefs.
+        if {"CartID", "audience", "language", "brief"}.issubset(b.columns):
+            for r in b.itertuples(index=False):
+                if r.brief:
+                    briefs[(r.CartID, r.audience, r.language)] = r.brief
+
+    # Keep app-generated prompts separate so briefs.csv retains its batch schema.
+    if INTERACTIVE_BRIEFS.exists():
+        saved = pd.read_csv(INTERACTIVE_BRIEFS, keep_default_na=False)
+        if {"CartID", "audience", "language", "brief"}.issubset(saved.columns):
+            for r in saved.itertuples(index=False):
+                if r.brief:
+                    briefs[(r.CartID, r.audience, r.language)] = r.brief
+    return briefs
 
 
 USGS_URL = ("https://waterservices.usgs.gov/nwis/iv/?format=json"
@@ -45,8 +79,11 @@ def parse_usgs(payload):
         if not vals:
             continue
         geo = t["sourceInfo"]["geoLocation"]["geogLocation"]
+        height = float(vals[-1]["value"])
+        if height <= -999999:
+            height = float("nan")
         rows.append({"gauge_name": t["sourceInfo"]["siteName"], "g_lat": float(geo["latitude"]),
-                     "g_lon": float(geo["longitude"]), "gage_height_ft": float(vals[-1]["value"]),
+                     "g_lon": float(geo["longitude"]), "gage_height_ft": height,
                      "gage_time": vals[-1]["dateTime"][:16].replace("T", " ")})
     return pd.DataFrame(rows)
 
@@ -61,28 +98,41 @@ def fetch_gauges():
         return pd.DataFrame(), str(e)
 
 
-def attach_gauges(df, gauges):
-    """Nearest live gauge for each crossing (distance in miles, same feet grid as the city data)."""
-    from pyproj import Transformer
-    from scipy.spatial import cKDTree
-    gx, gy = Transformer.from_crs(4326, 2278, always_xy=True).transform(gauges["g_lon"].values, gauges["g_lat"].values)
-    dist, idx = cKDTree(list(zip(gx, gy))).query(df[["x", "y"]].values)
-    near = gauges.iloc[idx].reset_index(drop=True)
-    df = df.copy()
-    df["nearest_gauge"] = near["gauge_name"].values
-    df["gauge_dist_mi"] = (dist / 5280).round(2)
-    df["gauge_height_ft"] = near["gage_height_ft"].values
-    df["gauge_reading_time"] = near["gage_time"].values
-    return df
+def refresh_gauge_readings(df, gauges):
+    """Refresh saved nearest-gauge readings by name; crossings.csv already has the spatial join."""
+    if gauges.empty or "nearest_gauge" not in df.columns:
+        return df
+
+    live = gauges.copy()
+    live["gage_height_ft"] = pd.to_numeric(live["gage_height_ft"], errors="coerce")
+    live.loc[live["gage_height_ft"] <= -999999, "gage_height_ft"] = float("nan")
+    live = live.dropna(subset=["gage_height_ft"]).drop_duplicates("gauge_name", keep="last")
+    if live.empty:
+        return df
+
+    latest_height = df["nearest_gauge"].map(live.set_index("gauge_name")["gage_height_ft"])
+    latest_time = df["nearest_gauge"].map(live.set_index("gauge_name")["gage_time"])
+    refreshed = df.copy()
+
+    if "gauge_height_ft" not in refreshed:
+        refreshed["gauge_height_ft"] = float("nan")
+    refreshed["gauge_height_ft"] = pd.to_numeric(refreshed["gauge_height_ft"], errors="coerce")
+    refreshed.loc[refreshed["gauge_height_ft"] <= -999999, "gauge_height_ft"] = float("nan")
+    refreshed["gauge_height_ft"] = latest_height.combine_first(refreshed["gauge_height_ft"])
+
+    if "gauge_reading_time" not in refreshed:
+        refreshed["gauge_reading_time"] = ""
+    refreshed["gauge_reading_time"] = latest_time.combine_first(refreshed["gauge_reading_time"])
+    return refreshed
 
 
 def save_brief(cart_id, audience, language, text):
     row = pd.DataFrame([{"CartID": cart_id, "audience": audience, "language": language, "brief": text}])
-    if BRIEFS.exists():
-        old = pd.read_csv(BRIEFS)
+    if INTERACTIVE_BRIEFS.exists():
+        old = pd.read_csv(INTERACTIVE_BRIEFS)
         old = old[~((old.CartID == cart_id) & (old.audience == audience) & (old.language == language))]
         row = pd.concat([old, row])
-    row.to_csv(BRIEFS, index=False)
+    row.to_csv(INTERACTIVE_BRIEFS, index=False, encoding="utf-8")
 
 
 def facts(r):
@@ -100,7 +150,8 @@ def facts(r):
         lines.append(f"Creek: {r.creek}; sewer overflows into this creek since 2021: {r.sso_same_creek}")
     if "nearest_gauge" in r._fields and pd.notna(r.nearest_gauge):
         lines.append(f"Nearest public USGS stream gauge: {r.nearest_gauge}, {r.gauge_dist_mi} miles away")
-        if "gauge_height_ft" in r._fields and pd.notna(r.gauge_height_ft):
+        if ("gauge_height_ft" in r._fields and pd.notna(r.gauge_height_ft)
+                and r.gauge_height_ft > -999999):
             lines.append(f"Latest reading at that gauge: {r.gauge_height_ft} ft gage height at {r.gauge_reading_time} "
                          "(local gauge measure, not water depth on the road)")
     return "\n".join(lines)
@@ -137,8 +188,7 @@ def write_brief(r, audience, language):
 # ---------- layout ----------
 df = load_crossings()
 gauges, gauge_error = fetch_gauges()
-if not gauges.empty:
-    df = attach_gauges(df, gauges)
+df = refresh_gauge_readings(df, gauges)
 st.session_state.setdefault("briefs", load_briefs())
 st.session_state.setdefault("chat", {})
 
@@ -189,9 +239,10 @@ with left:
                                 color="white", weight=1, fill=True, fill_color=color, fill_opacity=0.9,
                                 tooltip=f"#{r.risk_rank} {r.Name}").add_to(m)
         for g in gauges.itertuples():
+            reading = f"{g.gage_height_ft:.2f} ft" if pd.notna(g.gage_height_ft) else "height unavailable"
             folium.RegularPolygonMarker([g.g_lat, g.g_lon], number_of_sides=4, radius=6, color="#185FA5",
                                         fill=True, fill_opacity=0.9,
-                                        tooltip=f"USGS: {g.gauge_name} · {g.gage_height_ft} ft at {g.gage_time}").add_to(m)
+                                        tooltip=f"USGS: {g.gauge_name} · {reading} at {g.gage_time}").add_to(m)
         clicked = st_folium(m, height=480, use_container_width=True, returned_objects=["last_object_clicked_tooltip"])
         tip = (clicked or {}).get("last_object_clicked_tooltip")
         if tip in labels:
@@ -276,4 +327,4 @@ with st.expander("Batch: write resident briefs for the top 10"):
                 st.error(f"{row.Name}: {e}")
                 break
             bar.progress((i + 1) / 10)
-        st.success(f"Saved to {BRIEFS}")
+        st.success("Saved to data/processed/interactive_briefs.csv")
