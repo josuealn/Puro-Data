@@ -34,6 +34,48 @@ def load_briefs():
     return {}
 
 
+USGS_URL = ("https://waterservices.usgs.gov/nwis/iv/?format=json"
+            "&countyCd=48029&parameterCd=00065&siteStatus=active")   # Bexar County, gage height (ft)
+
+
+def parse_usgs(payload):
+    rows = []
+    for t in payload["value"]["timeSeries"]:
+        vals = t["values"][0]["value"]
+        if not vals:
+            continue
+        geo = t["sourceInfo"]["geoLocation"]["geogLocation"]
+        rows.append({"gauge_name": t["sourceInfo"]["siteName"], "g_lat": float(geo["latitude"]),
+                     "g_lon": float(geo["longitude"]), "gage_height_ft": float(vals[-1]["value"]),
+                     "gage_time": vals[-1]["dateTime"][:16].replace("T", " ")})
+    return pd.DataFrame(rows)
+
+
+@st.cache_data(ttl=300, show_spinner="Reading live USGS gauges...")
+def fetch_gauges():
+    """Latest reading from every active USGS gauge in Bexar County. Cached for 5 minutes."""
+    import requests
+    try:
+        return parse_usgs(requests.get(USGS_URL, timeout=30).json()), None
+    except Exception as e:
+        return pd.DataFrame(), str(e)
+
+
+def attach_gauges(df, gauges):
+    """Nearest live gauge for each crossing (distance in miles, same feet grid as the city data)."""
+    from pyproj import Transformer
+    from scipy.spatial import cKDTree
+    gx, gy = Transformer.from_crs(4326, 2278, always_xy=True).transform(gauges["g_lon"].values, gauges["g_lat"].values)
+    dist, idx = cKDTree(list(zip(gx, gy))).query(df[["x", "y"]].values)
+    near = gauges.iloc[idx].reset_index(drop=True)
+    df = df.copy()
+    df["nearest_gauge"] = near["gauge_name"].values
+    df["gauge_dist_mi"] = (dist / 5280).round(2)
+    df["gauge_height_ft"] = near["gage_height_ft"].values
+    df["gauge_reading_time"] = near["gage_time"].values
+    return df
+
+
 def save_brief(cart_id, audience, language, text):
     row = pd.DataFrame([{"CartID": cart_id, "audience": audience, "language": language, "brief": text}])
     if BRIEFS.exists():
@@ -58,6 +100,9 @@ def facts(r):
         lines.append(f"Creek: {r.creek}; sewer overflows into this creek since 2021: {r.sso_same_creek}")
     if "nearest_gauge" in r._fields and pd.notna(r.nearest_gauge):
         lines.append(f"Nearest public USGS stream gauge: {r.nearest_gauge}, {r.gauge_dist_mi} miles away")
+        if "gauge_height_ft" in r._fields and pd.notna(r.gauge_height_ft):
+            lines.append(f"Latest reading at that gauge: {r.gauge_height_ft} ft gage height at {r.gauge_reading_time} "
+                         "(local gauge measure, not water depth on the road)")
     return "\n".join(lines)
 
 
@@ -91,6 +136,9 @@ def write_brief(r, audience, language):
 
 # ---------- layout ----------
 df = load_crossings()
+gauges, gauge_error = fetch_gauges()
+if not gauges.empty:
+    df = attach_gauges(df, gauges)
 st.session_state.setdefault("briefs", load_briefs())
 st.session_state.setdefault("chat", {})
 
@@ -108,6 +156,15 @@ with st.sidebar:
     st.metric("Crossings shown", len(view))
     if "gauge_dist_mi" in df:
         st.metric("With a public gauge within 1 mi", int((df["gauge_dist_mi"] <= 1).sum()))
+    st.divider()
+    st.subheader("Live USGS gauges")
+    if gauges.empty:
+        st.warning("Live gauges unavailable; showing saved data." + (f" ({gauge_error[:80]})" if gauge_error else ""))
+    else:
+        st.success(f"{len(gauges)} gauges · latest {gauges['gage_time'].max()}")
+    if st.button("Refresh live data"):
+        fetch_gauges.clear()
+        st.rerun()
     st.divider()
     st.caption(f"Model server: {BASE_URL}")
 
@@ -131,13 +188,17 @@ with left:
             folium.CircleMarker([r.lat, r.lon], radius=9 if r.risk_rank <= 10 else 6 if r.risk_rank <= 40 else 4,
                                 color="white", weight=1, fill=True, fill_color=color, fill_opacity=0.9,
                                 tooltip=f"#{r.risk_rank} {r.Name}").add_to(m)
+        for g in gauges.itertuples():
+            folium.RegularPolygonMarker([g.g_lat, g.g_lon], number_of_sides=4, radius=6, color="#185FA5",
+                                        fill=True, fill_opacity=0.9,
+                                        tooltip=f"USGS: {g.gauge_name} · {g.gage_height_ft} ft at {g.gage_time}").add_to(m)
         clicked = st_folium(m, height=480, use_container_width=True, returned_objects=["last_object_clicked_tooltip"])
         tip = (clicked or {}).get("last_object_clicked_tooltip")
         if tip in labels:
             st.session_state.selected = tip
     except ImportError:
         st.map(view.rename(columns={"lon": "longitude", "lat": "latitude"}), size=60)
-    st.caption("Red: top 10 · Orange: next 30 · Gray: lower priority. Click a dot to select it.")
+    st.caption("Red: top 10 · Orange: next 30 · Gray: lower priority · Blue squares: live USGS gauges. Click a dot to select it.")
 
     st.subheader("Top 10 to check first")
     st.dataframe(df.head(10)[["risk_rank", "Name", "inlets_active", "inlets_poor_failed", "imp_projects_nearby",
@@ -164,6 +225,9 @@ with right:
     c2.metric("Creek overflows", r.sso_same_creek if pd.notna(r.creek) else "n/a")
     if "gauge_dist_mi" in r._fields and pd.notna(r.gauge_dist_mi):
         c3.metric("Nearest gauge", f"{r.gauge_dist_mi} mi")
+        if "gauge_height_ft" in r._fields and pd.notna(r.gauge_height_ft):
+            st.caption(f"Live: {r.nearest_gauge} reads {r.gauge_height_ft} ft at {r.gauge_reading_time} "
+                       "(USGS gage height, not water depth on the road)")
 
     st.divider()
     st.markdown("#### AI brief")
