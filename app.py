@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 from openai import OpenAI
 
-from vlm_config import API_KEY, BASE_URL, MODEL
+from vlm_config import API_KEY, BASE_URL, MODEL, REQUEST_TIMEOUT
 
 DATA = Path(__file__).resolve().parent / "data" / "processed"
 BRIEFS = DATA / "briefs.csv"
@@ -30,42 +30,46 @@ def load_crossings():
 
 
 def load_briefs():
+    """Load standard batch briefs, then overlay custom dashboard briefs."""
     briefs = {}
+    sources = {}
+    status = {"standard": 0, "fallback": 0, "interactive": 0}
+
     if BRIEFS.exists():
-        b = pd.read_csv(BRIEFS, keep_default_na=False)
+        batch = pd.read_csv(BRIEFS, keep_default_na=False)
+        required = {"CartID", "warning_en", "warning_es", "maintenance_suggestion"}
+        if required.issubset(batch.columns):
+            status["standard"] = int(batch["CartID"].nunique())
+            if "brief_source" in batch.columns:
+                status["fallback"] = int((batch["brief_source"] == "fallback").sum())
 
-        # Batch-generated briefs have one row per crossing and fixed language columns.
-        if {"CartID", "warning_en", "warning_es", "maintenance_suggestion"}.issubset(b.columns):
-            for r in b.itertuples(index=False):
-                en = str(r.warning_en).strip()
-                es = str(r.warning_es).strip()
-                maintenance = str(r.maintenance_suggestion).strip()
-                if en:
-                    briefs[(r.CartID, "Residents", "English")] = en
-                if es:
-                    briefs[(r.CartID, "Residents", "Spanish")] = es
-                if en or es:
-                    both = [en] if en else []
-                    if es:
-                        both.append(f"Español\n{es}")
-                    briefs[(r.CartID, "Residents", "Both")] = "\n\n".join(both)
-                if maintenance:
-                    briefs[(r.CartID, "Public Works crew", "English")] = maintenance
+            for row in batch.itertuples(index=False):
+                source = "Batch fallback" if getattr(row, "brief_source", "model") == "fallback" else "Batch model"
+                values = {
+                    (row.CartID, "Residents", "English"): str(row.warning_en).strip(),
+                    (row.CartID, "Residents", "Spanish"): str(row.warning_es).strip(),
+                    (row.CartID, "Public Works crew", "English"): str(row.maintenance_suggestion).strip(),
+                }
+                english = values[(row.CartID, "Residents", "English")]
+                spanish = values[(row.CartID, "Residents", "Spanish")]
+                values[(row.CartID, "Residents", "Both")] = f"{english}\n\nEspañol\n{spanish}".strip()
+                for key, value in values.items():
+                    if value:
+                        briefs[key] = value
+                        sources[key] = source
 
-        # Read the older long format for compatibility with previously saved briefs.
-        if {"CartID", "audience", "language", "brief"}.issubset(b.columns):
-            for r in b.itertuples(index=False):
-                if r.brief:
-                    briefs[(r.CartID, r.audience, r.language)] = r.brief
-
-    # Keep app-generated prompts separate so briefs.csv retains its batch schema.
     if INTERACTIVE_BRIEFS.exists():
         saved = pd.read_csv(INTERACTIVE_BRIEFS, keep_default_na=False)
-        if {"CartID", "audience", "language", "brief"}.issubset(saved.columns):
-            for r in saved.itertuples(index=False):
-                if r.brief:
-                    briefs[(r.CartID, r.audience, r.language)] = r.brief
-    return briefs
+        required = {"CartID", "audience", "language", "brief"}
+        if required.issubset(saved.columns):
+            status["interactive"] = len(saved)
+            for row in saved.itertuples(index=False):
+                if row.brief:
+                    key = (row.CartID, row.audience, row.language)
+                    briefs[key] = row.brief
+                    sources[key] = "Custom app brief"
+
+    return briefs, sources, status
 
 
 USGS_URL = ("https://waterservices.usgs.gov/nwis/iv/?format=json"
@@ -131,8 +135,10 @@ def save_brief(cart_id, audience, language, text):
     if INTERACTIVE_BRIEFS.exists():
         old = pd.read_csv(INTERACTIVE_BRIEFS)
         old = old[~((old.CartID == cart_id) & (old.audience == audience) & (old.language == language))]
-        row = pd.concat([old, row])
-    row.to_csv(INTERACTIVE_BRIEFS, index=False, encoding="utf-8")
+        row = pd.concat([old, row], ignore_index=True)
+    temporary_path = INTERACTIVE_BRIEFS.with_suffix(".csv.tmp")
+    row.to_csv(temporary_path, index=False, encoding="utf-8")
+    temporary_path.replace(INTERACTIVE_BRIEFS)
 
 
 def facts(r):
@@ -171,7 +177,7 @@ AUDIENCE = {
 
 
 def ask_model(messages, max_tokens=350):
-    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=90, max_retries=0)
+    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=REQUEST_TIMEOUT, max_retries=0)
     resp = client.chat.completions.create(
         model=MODEL, messages=messages, temperature=0.2, max_tokens=max_tokens,
         extra_body={"chat_template_kwargs": {"enable_thinking": False}})
@@ -180,7 +186,7 @@ def ask_model(messages, max_tokens=350):
 
 def write_brief(r, audience, language):
     lang = {"English": "Write in English.", "Spanish": "Write in Spanish.",
-            "Both": "Write it in English, then the same text in Spanish under a 'Español' heading."}[language]
+            "Both": "Write it in English, then the same text in Spanish under an 'Español' heading."}[language]
     return ask_model([{"role": "system", "content": SYSTEM},
                       {"role": "user", "content": f"{AUDIENCE[audience]} {lang}\n\nFacts:\n{facts(r)}"}])
 
@@ -189,7 +195,7 @@ def write_brief(r, audience, language):
 df = load_crossings()
 gauges, gauge_error = fetch_gauges()
 df = refresh_gauge_readings(df, gauges)
-st.session_state.setdefault("briefs", load_briefs())
+briefs, brief_sources, brief_status = load_briefs()
 st.session_state.setdefault("chat", {})
 
 st.title("Low water crossing risk, San Antonio")
@@ -206,6 +212,16 @@ with st.sidebar:
     st.metric("Crossings shown", len(view))
     if "gauge_dist_mi" in df:
         st.metric("With a public gauge within 1 mi", int((df["gauge_dist_mi"] <= 1).sum()))
+    st.divider()
+    st.subheader("Prepared AI briefs")
+    if brief_status["standard"]:
+        st.success(f"{brief_status['standard']} crossings loaded from briefs.csv")
+        if brief_status["fallback"]:
+            st.warning(f"{brief_status['fallback']} batch rows use fallback text and should be retried.")
+    else:
+        st.warning("No standard briefs found. Run: python generate_briefs.py")
+    if brief_status["interactive"]:
+        st.caption(f"{brief_status['interactive']} custom dashboard briefs saved")
     st.divider()
     st.subheader("Live USGS gauges")
     if gauges.empty:
@@ -286,16 +302,23 @@ with right:
     audience = a1.radio("For", list(AUDIENCE), horizontal=True)
     language = a2.radio("Language", ["English", "Spanish", "Both"], horizontal=True)
     key = (r.CartID, audience, language)
-    if st.button("Write brief on the GB10", type="primary", use_container_width=True):
+    if key in briefs:
+        st.info(briefs[key])
+        st.caption(f"Source: {brief_sources.get(key, 'Saved brief')}")
+    else:
+        st.caption("No prepared brief exists for this audience and language.")
+
+    button_label = "Create custom version on the GB10" if key in briefs else "Generate on the GB10"
+    if st.button(button_label, type="primary", use_container_width=True):
         with st.spinner("Asking the local model..."):
             try:
                 text = write_brief(r, audience, language)
-                st.session_state.briefs[key] = text
                 save_brief(*key, text)
+                briefs[key] = text
+                brief_sources[key] = "Custom app brief"
+                st.rerun()
             except Exception as e:
                 st.error(f"Could not reach the model at {BASE_URL}: {e}")
-    if key in st.session_state.briefs:
-        st.info(st.session_state.briefs[key])
     with st.expander("Facts sent to the model"):
         st.code(facts(r), language=None)
 
@@ -314,17 +337,3 @@ with right:
             history.pop()
             st.error(f"Could not reach the model: {e}")
         st.rerun()
-
-with st.expander("Batch: write resident briefs for the top 10"):
-    if st.button("Run for top 10 (English and Spanish)"):
-        bar = st.progress(0.0)
-        for i, row in enumerate(df.head(10).itertuples()):
-            try:
-                text = write_brief(row, "Residents", "Both")
-                st.session_state.briefs[(row.CartID, "Residents", "Both")] = text
-                save_brief(row.CartID, "Residents", "Both", text)
-            except Exception as e:
-                st.error(f"{row.Name}: {e}")
-                break
-            bar.progress((i + 1) / 10)
-        st.success("Saved to data/processed/interactive_briefs.csv")

@@ -1,4 +1,4 @@
-# Low Water Crossing Risk – San Antonio
+# Low Water Crossing Risk - San Antonio
 
 Built for the Dell Technologies Social Impact AI Datathon at UT San Antonio, November 13, 2026.
 
@@ -7,27 +7,26 @@ San Antonio's low water crossings are where flash floods turn deadly, and the wa
 ## How it works
 
 1. **Clean:** load the city and state datasets, keep Bexar County, and put everything in the same coordinate system.
-2. **Combine:** build one table with a row per crossing. Columns count the storm inlets, drainage maintenance jobs and sewer overflows nearby, plus the distance to the nearest storm channel.
+2. **Combine:** build one table with a row per crossing. Columns count nearby storm inlets, planned drainage projects, sewer overflow reports and the nearest USGS gauge.
 3. **Score and cluster:** rank the crossings with a transparent risk score and group them with k-means into named risk types.
 4. **Write briefs:** send each crossing's facts to Qwen3-VL-8B-Instruct, served by vLLM on the GB10, which writes the bilingual warning.
 5. **Show it:** an interactive map colored by risk, where clicking a crossing shows its numbers and its brief.
 
-All data processing runs on a laptop. Only step 4 uses the GB10, and the data never leaves the local network.
+Data processing runs on a laptop. Batch brief generation and optional dashboard questions use the GB10, and crossing data stays on the local network.
 
 ## Repository layout
 
 ```
 .
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── vlm_config.py         # GB10 model server address
-├── 01_clean.ipynb        # cleaning, combined table, risk score, clusters, map
-├── 02_briefs.ipynb       # Qwen prompt and brief generation
-├── app.py                # Streamlit demo app
-└── data/                 # not committed, see "Data" below
-    ├── raw/              # downloaded files
-    └── processed/        # crossings.csv, briefs.csv, risk_map.html
+|-- README.md
+|-- requirements.txt
+|-- vlm_config.py         # shared GB10 connection settings
+|-- 01_clean.ipynb        # cleaning, joins, scoring, clustering and gauge association
+|-- generate_briefs.py    # resumable Qwen batch generation
+|-- app.py                # Streamlit display and selected-crossing interaction
+`-- data/
+    |-- raw/              # downloaded source files
+    `-- processed/        # crossings.csv, briefs.csv, interactive_briefs.csv, risk_map.html
 ```
 
 ## Data
@@ -38,8 +37,8 @@ The data files are not committed. Download each one into `data/raw/`, choosing C
 | --- | --- | --- |
 | Low Water Crossings | [COSA GIS](https://opendata-cosagis.opendata.arcgis.com/datasets/4089adb69af14608acfb02703b1dd439_0/about) | One row per crossing |
 | Storm Inlets | [COSA GIS](https://opendata-cosagis.opendata.arcgis.com/datasets/CoSAGIS::storminlets/about) | Drainage near each crossing |
-| Storm Channels | [COSA GIS](https://opendata-cosagis.opendata.arcgis.com/datasets/CoSAGIS::stormchannels/about) | Distance to nearest channel |
-| IMP Drainage | [Open Data SA](https://data.sanantonio.gov/dataset/imp-drainage) | Recent maintenance |
+| Storm Channels | [COSA GIS](https://opendata-cosagis.opendata.arcgis.com/datasets/CoSAGIS::stormchannels/about) | Downloaded but not scored because the CSV lacks coordinates |
+| IMP Drainage | [Open Data SA](https://data.sanantonio.gov/dataset/imp-drainage) | Planned FY 2026-2030 projects |
 | Sanitary Sewer Overflows | [TCEQ](https://data.texas.gov/dataset/Texas-Commission-on-Environmental-Quality-Sanitary/8kc5-95uk/about_data) | Overflow reports nearby |
 | Street Light Sensor Data (optional) | [Open Data SA](https://data.sanantonio.gov/dataset/street-light-sensor-data) | Flood-level readings |
 
@@ -51,19 +50,6 @@ conda activate gb10
 python -m pip install -r requirements.txt
 ```
 
-`requirements.txt`:
-
-```
-jupyterlab>=4,<5
-openai>=1,<4
-pandas>=2,<4
-geopandas
-scikit-learn>=1.3,<2
-matplotlib>=3.7,<4
-folium
-streamlit
-```
-
 ## Connect to the GB10 model server
 
 On the GB10, check that the model server is running:
@@ -72,12 +58,12 @@ On the GB10, check that the model server is running:
 docker ps    # look for qwen-vl-server
 ```
 
-In `vlm_config.py`, set the server address:
+The shared defaults are in `vlm_config.py`. They can be overridden without editing code:
 
-```python
-BASE_URL = "http://GB10_IP_ADDRESS:8000/v1"   # or http://localhost:8000/v1 when running on the GB10
-MODEL = "Qwen/Qwen3-VL-8B-Instruct"
-API_KEY = "NONE"
+```powershell
+$env:VLLM_BASE_URL = "http://GB10_IP_ADDRESS:8000/v1"
+$env:VLLM_MODEL = "Qwen/Qwen3-VL-8B-Instruct"
+$env:VLLM_API_KEY = "EMPTY"
 ```
 
 Test it from your laptop:
@@ -90,8 +76,10 @@ curl http://GB10_IP_ADDRESS:8000/v1/models
 
 1. Start Jupyter from the activated environment with `python -m jupyterlab`.
 2. Run `01_clean.ipynb` top to bottom. It writes `data/processed/crossings.csv` and `risk_map.html`.
-3. Run `02_briefs.ipynb`. It writes `data/processed/briefs.csv`.
+3. Run `python generate_briefs.py`. It writes `data/processed/briefs.csv`. Later runs reuse unchanged model-generated rows; use `python generate_briefs.py --force` for a complete refresh.
 4. Launch the demo with `streamlit run app.py`.
+
+The dashboard reads the prepared standard briefs and calls the model only for a custom selected-crossing brief or chat question. Custom briefs are stored separately in `data/processed/interactive_briefs.csv`.
 
 ## Limitations
 
