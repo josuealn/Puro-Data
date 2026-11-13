@@ -102,4 +102,4 @@ curl http://GB10_IP_ADDRESS:8000/v1/models
 ## Team
 
 - Josue: data cleaning, combined table, risk score, clustering, map
-- [Teammate name]: Qwen briefs, Streamlit app, slides
+- Larry: Qwen briefs, Streamlit app, slides
