@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7e3a1f8e2bad9c94bc224ee7c82b4108 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7e3a1f8e2bad9c94bc224ee7c82b4108" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7e3a1f8e2bad9c94bc224ee7c82b4108 = L.map(
+                "map_7e3a1f8e2bad9c94bc224ee7c82b4108",
+                {
+                    center: [29.482347860089213, -98.51039215577474],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1f28541fdf1d1c2df9320c645248970a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1f28541fdf1d1c2df9320c645248970a.addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            var circle_marker_da0cb3fe5c296fd9c7e6b645d9318484 = L.circleMarker(
+                [29.595468322555796, -98.43464050459315],
+                {"bubblingMouseEvents": true, "color": "#455f89", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455f89", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.830955777460771, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_da0cb3fe5c296fd9c7e6b645d9318484.bindTooltip(
+                `<div>
+                     #85 Elm Creek at Jones Maltsberger<br>score -0.39 · active inlets 12 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3bc80452a061035f4eb6a979db9c1a57 = L.circleMarker(
+                [29.479683770852468, -98.417286607905],
+                {"bubblingMouseEvents": true, "color": "#575478", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#575478", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.588445078459344, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_3bc80452a061035f4eb6a979db9c1a57.bindTooltip(
+                `<div>
+                     #31 Cougar Way Fort Sam Houston<br>score 0.79 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b792b4b4a5fec96703076ab79268db77 = L.circleMarker(
+                [29.432805210322435, -98.62369349581665],
+                {"bubblingMouseEvents": true, "color": "#366996", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#366996", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.227532097004279, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_b792b4b4a5fec96703076ab79268db77.bindTooltip(
+                `<div>
+                     #129 Pinn Rd 1320 ft S of West Commerce<br>score -1.33 · active inlets 7 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc1b36c551d98e91bc0f5c7c4c00540a = L.circleMarker(
+                [29.53692965426339, -98.53995007774301],
+                {"bubblingMouseEvents": true, "color": "#52577d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#52577d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.37018544935806, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_cc1b36c551d98e91bc0f5c7c4c00540a.bindTooltip(
+                `<div>
+                     #43 Dreamland at RR Crossing<br>score 0.45 · active inlets 0 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3bfc45fb36523fd1145a1c6707266e02 = L.circleMarker(
+                [29.572431095454824, -98.60746225149171],
+                {"bubblingMouseEvents": true, "color": "#455f88", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455f88", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.84379457917261, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_3bfc45fb36523fd1145a1c6707266e02.bindTooltip(
+                `<div>
+                     #84 Hausman Rd 4200 ft W of IH-10<br>score -0.37 · active inlets 2 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1fcd4716ed164f091c0d8ce1f1b3480f = L.circleMarker(
+                [29.476459373025783, -98.25427483144655],
+                {"bubblingMouseEvents": true, "color": "#76405b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#76405b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.865905848787445, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1fcd4716ed164f091c0d8ce1f1b3480f.bindTooltip(
+                `<div>
+                     #14 Pfeil Rd at Bluebell Ridge<br>score 2.78 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76445eb3671c6b9181749677ca64c976 = L.circleMarker(
+                [29.353855968082765, -98.3195023376546],
+                {"bubblingMouseEvents": true, "color": "#dc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc0000", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.0, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_76445eb3671c6b9181749677ca64c976.bindTooltip(
+                `<div>
+                     #1 New Sulphur Springs E of Beck<br>score 9.22 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_28b4114443cee417cbd8249f2b23552a = L.circleMarker(
+                [29.52881617469711, -98.68832121953508],
+                {"bubblingMouseEvents": true, "color": "#54567b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#54567b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.453637660485022, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_28b4114443cee417cbd8249f2b23552a.bindTooltip(
+                `<div>
+                     #37 Leslie Rd 3200 ft SW of Braun Rd<br>score 0.58 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_990227de46bc9af5cf1d244a1f00cc2d = L.circleMarker(
+                [29.553553104507706, -98.56462892331768],
+                {"bubblingMouseEvents": true, "color": "#5c5174", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5c5174", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.774607703281027, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_990227de46bc9af5cf1d244a1f00cc2d.bindTooltip(
+                `<div>
+                     #26 Sleepy Hollow at Sunburst<br>score 1.08 · active inlets 13 · poor/failed 1 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf458270764d304bdbbb72852510c89f = L.circleMarker(
+                [29.567092999884455, -98.36520093984007],
+                {"bubblingMouseEvents": true, "color": "#40638d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#40638d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.631954350927247, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_cf458270764d304bdbbb72852510c89f.bindTooltip(
+                `<div>
+                     #101 Judson Rd 100 ft SE of Lookout Rd<br>score -0.7 · active inlets 7 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd1f143a26490cf1eefa296fb0500335 = L.circleMarker(
+                [29.350409942915512, -98.64637957477234],
+                {"bubblingMouseEvents": true, "color": "#793e59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#793e59", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.975035663338089, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_dd1f143a26490cf1eefa296fb0500335.bindTooltip(
+                `<div>
+                     #13 Covel and Medio Creek<br>score 2.95 · active inlets 1 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_69ca0e68f94d1e7b03cda49d28799cf9 = L.circleMarker(
+                [29.55600398234924, -98.6557533816268],
+                {"bubblingMouseEvents": true, "color": "#3b6691", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3b6691", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.432952924393723, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_69ca0e68f94d1e7b03cda49d28799cf9.bindTooltip(
+                `<div>
+                     #115 S Hausman Rd 4300 ft N of Prue Rd<br>score -1.01 · active inlets 1 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_efd7fc0f19ad1e444dd3bf19d5704407 = L.circleMarker(
+                [29.580151465400785, -98.4128763850782],
+                {"bubblingMouseEvents": true, "color": "#475e87", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#475e87", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.920827389443652, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_efd7fc0f19ad1e444dd3bf19d5704407.bindTooltip(
+                `<div>
+                     #78 Jung at Salado Mud Creek Tributary A<br>score -0.25 · active inlets 4 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e9b888d41278f26c22553f508b587a7c = L.circleMarker(
+                [29.573090565596292, -98.40656676323734],
+                {"bubblingMouseEvents": true, "color": "#53577c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#53577c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.40228245363766, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_e9b888d41278f26c22553f508b587a7c.bindTooltip(
+                `<div>
+                     #41 Stahl Rd S of Jung<br>score 0.5 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1203b5ad80b18ef71d80c644c9928cee = L.circleMarker(
+                [29.54109229332315, -98.64699124524256],
+                {"bubblingMouseEvents": true, "color": "#4b5c83", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b5c83", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.068473609129814, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1203b5ad80b18ef71d80c644c9928cee.bindTooltip(
+                `<div>
+                     #70 N Verde Rd at French Creek<br>score -0.02 · active inlets 2 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c00bb26d56329fbe13117c19d8a3475 = L.circleMarker(
+                [29.371714117308834, -98.3922986802366],
+                {"bubblingMouseEvents": true, "color": "#585377", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#585377", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.626961483594864, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_5c00bb26d56329fbe13117c19d8a3475.bindTooltip(
+                `<div>
+                     #29 New Sulphur Springs at Rosillo Creek<br>score 0.85 · active inlets 14 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_163f9beb5cd2993cb8827f47e566c45b = L.circleMarker(
+                [29.517672225209544, -98.45605814500416],
+                {"bubblingMouseEvents": true, "color": "#356a97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#356a97", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.1697574893009985, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_163f9beb5cd2993cb8827f47e566c45b.bindTooltip(
+                `<div>
+                     #132 Cheever<br>score -1.42 · active inlets 38 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f98a431534453a781685e7d1882a0bd = L.circleMarker(
+                [29.546727264687494, -98.41361798600235],
+                {"bubblingMouseEvents": true, "color": "#346a98", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#346a98", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.144079885877318, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0f98a431534453a781685e7d1882a0bd.bindTooltip(
+                `<div>
+                     #133 Nacogdoches Rd 750 ft S of Old Perrin Beitel<br>score -1.46 · active inlets 21 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45279f2d671ce53ffd6aaf0b1d6b953f = L.circleMarker(
+                [29.569766872328273, -98.3572180928072],
+                {"bubblingMouseEvents": true, "color": "#4c5b82", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c5b82", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.126248216833096, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_45279f2d671ce53ffd6aaf0b1d6b953f.bindTooltip(
+                `<div>
+                     #64 Lookout Rd 200 ft SW of Topperwein<br>score 0.07 · active inlets 3 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb0fa7e1a979e7687f207a5b6a13ca50 = L.circleMarker(
+                [29.365697033238863, -98.45961668364387],
+                {"bubblingMouseEvents": true, "color": "#4b5b83", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b5b83", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.100570613409415, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_cb0fa7e1a979e7687f207a5b6a13ca50.bindTooltip(
+                `<div>
+                     #67 S New Braunfels at Koehler Ct<br>score 0.03 · active inlets 6 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0d162ef4083687457760c2f96efc6d1 = L.circleMarker(
+                [29.543887442933844, -98.46350170647393],
+                {"bubblingMouseEvents": true, "color": "#4b5b83", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b5b83", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.094151212553495, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_b0d162ef4083687457760c2f96efc6d1.bindTooltip(
+                `<div>
+                     #68 Bitters Rd 2600 ft W of NE Entrance<br>score 0.02 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bec4eb58ac9f4b22db15a0e1fc5ecc6d = L.circleMarker(
+                [29.543719868236703, -98.65184779274273],
+                {"bubblingMouseEvents": true, "color": "#41628c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41628c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.683309557774608, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_bec4eb58ac9f4b22db15a0e1fc5ecc6d.bindTooltip(
+                `<div>
+                     #96 Prue Rd 1500 ft N of Bandera Rd<br>score -0.62 · active inlets 8 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df1306be8dbd362c8efa892bd51b5d46 = L.circleMarker(
+                [29.621844639748243, -98.59892355222551],
+                {"bubblingMouseEvents": true, "color": "#c30f16", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c30f16", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.004992867332382, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_df1306be8dbd362c8efa892bd51b5d46.bindTooltip(
+                `<div>
+                     #2 Old Camp Bullis Road at Leon Creek<br>score 7.67 · active inlets 4 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8af41e0b0775235562f5e08a71cf326 = L.circleMarker(
+                [29.473110784541426, -98.5920528863172],
+                {"bubblingMouseEvents": true, "color": "#376895", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#376895", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.28530670470756, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a8af41e0b0775235562f5e08a71cf326.bindTooltip(
+                `<div>
+                     #123 Oak Knoll 500 ft E of E Horseshoe Bend<br>score -1.24 · active inlets 17 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f5f8c281ff451a9fd1bfe0dffbd6711 = L.circleMarker(
+                [29.532798251059493, -98.60812615878736],
+                {"bubblingMouseEvents": true, "color": "#3f638e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3f638e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.5934379457917265, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_3f5f8c281ff451a9fd1bfe0dffbd6711.bindTooltip(
+                `<div>
+                     #105 HollyHock 600 W of Babcock<br>score -0.76 · active inlets 4 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_165d50acc996a8d1fcd34013984a4c54 = L.circleMarker(
+                [29.571916708438884, -98.63531111037847],
+                {"bubblingMouseEvents": true, "color": "#2e6e9d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e6e9d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.9065620542082735, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_165d50acc996a8d1fcd34013984a4c54.bindTooltip(
+                `<div>
+                     #136 Hausman Rd 1000 ft W of Babcock<br>score -1.83 · active inlets 18 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_89d8c216feec76c0df589a426363efdc = L.circleMarker(
+                [29.410583786262734, -98.62402067223447],
+                {"bubblingMouseEvents": true, "color": "#41628c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41628c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.683309557774608, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_89d8c216feec76c0df589a426363efdc.bindTooltip(
+                `<div>
+                     #97 2100 Blk of Pinn Rd<br>score -0.62 · active inlets 28 · poor/failed 1 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a68a4d865ba71afdeb865aca63284a5 = L.circleMarker(
+                [29.541715644317176, -98.60493324044039],
+                {"bubblingMouseEvents": true, "color": "#4d5a81", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4d5a81", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.177603423680457, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_4a68a4d865ba71afdeb865aca63284a5.bindTooltip(
+                `<div>
+                     #57 Lockhill 250 ft E of White Bonnet<br>score 0.15 · active inlets 1 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7275f4ace5f6fea9015814c113f44c38 = L.circleMarker(
+                [29.493991161266344, -98.44211629763966],
+                {"bubblingMouseEvents": true, "color": "#5c5174", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5c5174", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.774607703281027, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7275f4ace5f6fea9015814c113f44c38.bindTooltip(
+                `<div>
+                     #27 Vandiver and Irvington<br>score 1.08 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7552220ebafcaab27df6abb32a8b7b39 = L.circleMarker(
+                [29.530310783178162, -98.53772884173041],
+                {"bubblingMouseEvents": true, "color": "#3d6490", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3d6490", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.516405135520685, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7552220ebafcaab27df6abb32a8b7b39.bindTooltip(
+                `<div>
+                     #110 Algerita Dr 1000 ft NW of Vance Jackson<br>score -0.88 · active inlets 3 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9f1cc4095683bc3c7e3bfb857a15cc1 = L.circleMarker(
+                [29.453288668815613, -98.51859117548577],
+                {"bubblingMouseEvents": true, "color": "#446089", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#446089", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.81811697574893, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c9f1cc4095683bc3c7e3bfb857a15cc1.bindTooltip(
+                `<div>
+                     #87 Woodlawn at Martinez Creek<br>score -0.41 · active inlets 20 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e68b82e2bffb90f6ccccdbc1505fdd05 = L.circleMarker(
+                [29.549059516233363, -98.56713958644355],
+                {"bubblingMouseEvents": true, "color": "#54567b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#54567b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.447218259629102, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_e68b82e2bffb90f6ccccdbc1505fdd05.bindTooltip(
+                `<div>
+                     #38 Vance Jackson at Orsinger Rd<br>score 0.57 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_74eae6dc57bba499c44105758ca3acca = L.circleMarker(
+                [29.547934021197385, -98.38228772116913],
+                {"bubblingMouseEvents": true, "color": "#2a71a1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a71a1", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.720399429386591, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_74eae6dc57bba499c44105758ca3acca.bindTooltip(
+                `<div>
+                     #145 Weidner S of Leonhardt<br>score -2.12 · active inlets 8 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9b317705a2c0e3d52d5c5e34f0bd795 = L.circleMarker(
+                [29.339120691466505, -98.50154681680007],
+                {"bubblingMouseEvents": true, "color": "#376895", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#376895", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.25320970042796, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a9b317705a2c0e3d52d5c5e34f0bd795.bindTooltip(
+                `<div>
+                     #124 Petaluma 2900 ft W of Bascum<br>score -1.29 · active inlets 25 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a292b294e6106f04e999860d4858a75 = L.circleMarker(
+                [29.595686493056355, -98.46108774921296],
+                {"bubblingMouseEvents": true, "color": "#366996", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#366996", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.24679029957204, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6a292b294e6106f04e999860d4858a75.bindTooltip(
+                `<div>
+                     #126 Copperhill<br>score -1.3 · active inlets 26 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fc0635a01fbf2b0ef29f5a75b2fc03d = L.circleMarker(
+                [29.48410512192797, -98.36905509207058],
+                {"bubblingMouseEvents": true, "color": "#4b5c83", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b5c83", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.068473609129814, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7fc0635a01fbf2b0ef29f5a75b2fc03d.bindTooltip(
+                `<div>
+                     #71 Gibbs Sprawl 800 ft NE of Castle Cross<br>score -0.02 · active inlets 3 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0384cc035823cfcc43b5e28fe4dadb83 = L.circleMarker(
+                [29.56102602856871, -98.49408479521372],
+                {"bubblingMouseEvents": true, "color": "#2c6f9f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c6f9f", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.829529243937232, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0384cc035823cfcc43b5e28fe4dadb83.bindTooltip(
+                `<div>
+                     #140 West Ave S of Interpark<br>score -1.95 · active inlets 20 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58d5911abfe2cba3bf146ee445eccb88 = L.circleMarker(
+                [29.31388874158661, -98.55723920780405],
+                {"bubblingMouseEvents": true, "color": "#4f597f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4f597f", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.241797432239657, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_58d5911abfe2cba3bf146ee445eccb88.bindTooltip(
+                `<div>
+                     #52 Comanche Crossing Between Mission Canyon and Compari<br>score 0.25 · active inlets 2 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4fe04479c9e67f843e159f396da33205 = L.circleMarker(
+                [29.547986409649173, -98.39159688020855],
+                {"bubblingMouseEvents": true, "color": "#4d5a81", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4d5a81", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.151925820256777, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_4fe04479c9e67f843e159f396da33205.bindTooltip(
+                `<div>
+                     #59 Leonhardt 500 ft S of Encante<br>score 0.11 · active inlets 1 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8bc31f1952386781716fb537792c780b = L.circleMarker(
+                [29.284274989980407, -98.40101868370286],
+                {"bubblingMouseEvents": true, "color": "#3e648f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3e648f", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.5613409415121255, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_8bc31f1952386781716fb537792c780b.bindTooltip(
+                `<div>
+                     #109 Southton Rd 2000 ft W of IH-37<br>score -0.81 · active inlets 3 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4cffd37d75e8be24040d50abe40df28b = L.circleMarker(
+                [29.3355679227587, -98.52554590999405],
+                {"bubblingMouseEvents": true, "color": "#4e5980", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4e5980", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.222539229671897, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_4cffd37d75e8be24040d50abe40df28b.bindTooltip(
+                `<div>
+                     #53 W Ansley Blvd and Rockwell Blvd<br>score 0.22 · active inlets 4 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8d53663bd0958fb3d9bc51ef2ecc264a = L.circleMarker(
+                [29.578530455982587, -98.41939881581092],
+                {"bubblingMouseEvents": true, "color": "#2b70a0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b70a0", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.7781740370898715, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_8d53663bd0958fb3d9bc51ef2ecc264a.bindTooltip(
+                `<div>
+                     #141 Jung Rd at Mud Creek Tributary A<br>score -2.03 · active inlets 24 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cdd7fd83eda852bf77e3ccf276c5c924 = L.circleMarker(
+                [29.403428383750793, -98.65670779708452],
+                {"bubblingMouseEvents": true, "color": "#2573a5", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2573a5", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.5470756062767475, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_cdd7fd83eda852bf77e3ccf276c5c924.bindTooltip(
+                `<div>
+                     #149 Horal Dr at Revlon<br>score -2.39 · active inlets 31 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a16c1b8f76768252f7229c815b3e2971 = L.circleMarker(
+                [29.34760122268107, -98.39549406501247],
+                {"bubblingMouseEvents": true, "color": "#7d3c56", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7d3c56", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.116262482168331, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a16c1b8f76768252f7229c815b3e2971.bindTooltip(
+                `<div>
+                     #11 WW White at Rosillo Creek<br>score 3.17 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f9f989c3a934fb7e9bdcb78260de241 = L.circleMarker(
+                [29.539128728279856, -98.64677606051461],
+                {"bubblingMouseEvents": true, "color": "#4d5a81", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4d5a81", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.151925820256777, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1f9f989c3a934fb7e9bdcb78260de241.bindTooltip(
+                `<div>
+                     #60 S Verde Rd at French Creek<br>score 0.11 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0d71ecd608e6f4f361ef338f091ed9f = L.circleMarker(
+                [29.48044432601046, -98.55155049557199],
+                {"bubblingMouseEvents": true, "color": "#54557a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#54557a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.472895863052782, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_b0d71ecd608e6f4f361ef338f091ed9f.bindTooltip(
+                `<div>
+                     #35 Danville and Overbrook<br>score 0.61 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16e1a256e3cecdd69dba3d60a4833af4 = L.circleMarker(
+                [29.484290203837592, -98.54050531772609],
+                {"bubblingMouseEvents": true, "color": "#455f88", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#455f88", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.863052781740371, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_16e1a256e3cecdd69dba3d60a4833af4.bindTooltip(
+                `<div>
+                     #83 Spencer Ln E of Balcones<br>score -0.34 · active inlets 15 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e3cf03c2e039f646e409623fa72d0df = L.circleMarker(
+                [29.583850713392874, -98.47371317207656],
+                {"bubblingMouseEvents": true, "color": "#624d6e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#624d6e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.031383737517832, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2e3cf03c2e039f646e409623fa72d0df.bindTooltip(
+                `<div>
+                     #20 Paso Del Norte 700 ft W of San Pedro<br>score 1.48 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_08c887f9574ed94622bc37f2f7862f9e = L.circleMarker(
+                [29.552531369357297, -98.56378641512889],
+                {"bubblingMouseEvents": true, "color": "#495d85", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#495d85", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.991440798858774, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_08c887f9574ed94622bc37f2f7862f9e.bindTooltip(
+                `<div>
+                     #74 Orsinger 250 W of Sleepy Hollow<br>score -0.14 · active inlets 1 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48e07f819f27ad7d2f2dedc96dd7444a = L.circleMarker(
+                [29.55726240830704, -98.65575405101252],
+                {"bubblingMouseEvents": true, "color": "#366996", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#366996", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.22111269614836, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_48e07f819f27ad7d2f2dedc96dd7444a.bindTooltip(
+                `<div>
+                     #130 S Hausman Rd 4700 ft N of Prue Rd<br>score -1.34 · active inlets 1 · poor/failed 0 · drainage projects 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1e96cd52de01c3a5ee8110a83bb1c86 = L.circleMarker(
+                [29.472344809005435, -98.59298599531368],
+                {"bubblingMouseEvents": true, "color": "#3a6693", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3a6693", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.381597717546362, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c1e96cd52de01c3a5ee8110a83bb1c86.bindTooltip(
+                `<div>
+                     #119 E Horseshoe Bend and Oakwood<br>score -1.09 · active inlets 7 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e7d2c88ed7fa635f84c5f9f90932e43 = L.circleMarker(
+                [29.358563806370892, -98.47210273166061],
+                {"bubblingMouseEvents": true, "color": "#40628c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#40628c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.6576319543509275, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6e7d2c88ed7fa635f84c5f9f90932e43.bindTooltip(
+                `<div>
+                     #99 East of Padre Dr. at E. Pyron Street Bridge<br>score -0.66 · active inlets 17 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e645f317f16fab9a20714d8d272cf30e = L.circleMarker(
+                [29.536483257864724, -98.58986898959013],
+                {"bubblingMouseEvents": true, "color": "#366996", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#366996", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.24037089871612, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_e645f317f16fab9a20714d8d272cf30e.bindTooltip(
+                `<div>
+                     #128 Southwell 200 ft S of Verbena<br>score -1.31 · active inlets 18 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0826eead8bf2afa33b9965eb91fbaf0f = L.circleMarker(
+                [29.396196390160952, -98.4342214117659],
+                {"bubblingMouseEvents": true, "color": "#2474a6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2474a6", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.495720399429386, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0826eead8bf2afa33b9965eb91fbaf0f.bindTooltip(
+                `<div>
+                     #151 Quinta at Vista<br>score -2.47 · active inlets 36 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_24a2333532f27daacc703a6c38874742 = L.circleMarker(
+                [29.411652059654614, -98.61441696611226],
+                {"bubblingMouseEvents": true, "color": "#b61822", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b61822", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.45292439372325, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_24a2333532f27daacc703a6c38874742.bindTooltip(
+                `<div>
+                     #3 Rodriguez and Leon Creek<br>score 6.81 · active inlets 4 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3f6dc5c530462de8b6ef78f8383044d = L.circleMarker(
+                [29.508716341581398, -98.44870243388097],
+                {"bubblingMouseEvents": true, "color": "#4c5b82", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c5b82", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.1455064194008555, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_f3f6dc5c530462de8b6ef78f8383044d.bindTooltip(
+                `<div>
+                     #61 Cave Ln<br>score 0.1 · active inlets 8 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6240af3e2a27e7eaeaa1c07ac32df526 = L.circleMarker(
+                [29.47347585143158, -98.59620872436274],
+                {"bubblingMouseEvents": true, "color": "#2f6d9c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2f6d9c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.957917261055634, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6240af3e2a27e7eaeaa1c07ac32df526.bindTooltip(
+                `<div>
+                     #134 SilverCrest 100 ft NW of Majestic<br>score -1.75 · active inlets 25 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81e705397e6659aa29610dafa27371b4 = L.circleMarker(
+                [29.570050281289387, -98.63342067542911],
+                {"bubblingMouseEvents": true, "color": "#2e6e9d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e6e9d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.893723252496434, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_81e705397e6659aa29610dafa27371b4.bindTooltip(
+                `<div>
+                     #138 Danvers<br>score -1.85 · active inlets 24 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0ef5e70037951b727c33a075fde7598 = L.circleMarker(
+                [29.405516716090656, -98.62658147136285],
+                {"bubblingMouseEvents": true, "color": "#42618b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#42618b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.734664764621969, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_d0ef5e70037951b727c33a075fde7598.bindTooltip(
+                `<div>
+                     #92 Biscayne<br>score -0.54 · active inlets 9 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c80dbd1bdadc9bdf674476c1bfc21f1 = L.circleMarker(
+                [29.583152026955034, -98.47194602127753],
+                {"bubblingMouseEvents": true, "color": "#644b6c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#644b6c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.127674750356633, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0c80dbd1bdadc9bdf674476c1bfc21f1.bindTooltip(
+                `<div>
+                     #19 Encino Grande S of Paso Del Norte<br>score 1.63 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0414b69389d82536d507390cac77ffcb = L.circleMarker(
+                [29.541065585970156, -98.6056396049003],
+                {"bubblingMouseEvents": true, "color": "#50587e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#50587e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.305991440798859, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0414b69389d82536d507390cac77ffcb.bindTooltip(
+                `<div>
+                     #48 White Bonnet S of Lockhill<br>score 0.35 · active inlets 0 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f0ce6f01c5b324b2ef7a82ba5a8b9d2 = L.circleMarker(
+                [29.456201474565358, -98.47592474612298],
+                {"bubblingMouseEvents": true, "color": "#51587d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#51587d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.338088445078459, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1f0ce6f01c5b324b2ef7a82ba5a8b9d2.bindTooltip(
+                `<div>
+                     #46 E Mulberry at San Antonio River<br>score 0.4 · active inlets 5 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2063d52f43eb3e749f8d5e28a735d9e = L.circleMarker(
+                [29.54402699162089, -98.45224819702887],
+                {"bubblingMouseEvents": true, "color": "#52577c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#52577c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.38944365192582, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c2063d52f43eb3e749f8d5e28a735d9e.bindTooltip(
+                `<div>
+                     #42 NE Entrance Rd 1000 ft S of Starcrest<br>score 0.48 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30b59940352757c83f5d447de33c58bf = L.circleMarker(
+                [29.46963269810517, -98.41419562772589],
+                {"bubblingMouseEvents": true, "color": "#4a5c84", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4a5c84", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.036376604850213, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_30b59940352757c83f5d447de33c58bf.bindTooltip(
+                `<div>
+                     #72 Holbrook North of Petroleum Dr<br>score -0.07 · active inlets 1 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03dfaddcabc6880adf16418a192ac044 = L.circleMarker(
+                [29.58013575228812, -98.40276279441561],
+                {"bubblingMouseEvents": true, "color": "#823951", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#823951", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.321683309557773, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_03dfaddcabc6880adf16418a192ac044.bindTooltip(
+                `<div>
+                     #7 Classen Rd 800 feet NW of Stahl Rd<br>score 3.49 · active inlets 6 · poor/failed 2 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4c0b3d1921e095a856c33b50bbb8abd = L.circleMarker(
+                [29.532379840913002, -98.68651893858568],
+                {"bubblingMouseEvents": true, "color": "#55557a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#55557a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.479315263908702, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c4c0b3d1921e095a856c33b50bbb8abd.bindTooltip(
+                `<div>
+                     #34 Leslie Rd 1850 ft SW of Braun Rd<br>score 0.62 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_869542c0e4620f62608ab3c1167e2b42 = L.circleMarker(
+                [29.419159676235545, -98.64704739326031],
+                {"bubblingMouseEvents": true, "color": "#42618b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#42618b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.702567760342368, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_869542c0e4620f62608ab3c1167e2b42.bindTooltip(
+                `<div>
+                     #94 Harness Lane 480 ft N of Marbach Rd<br>score -0.59 · active inlets 37 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34ca301c6c3d78f9960607b3fc508aef = L.circleMarker(
+                [29.580307233338477, -98.4038205051041],
+                {"bubblingMouseEvents": true, "color": "#803a53", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#803a53", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.238231098430813, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_34ca301c6c3d78f9960607b3fc508aef.bindTooltip(
+                `<div>
+                     #10 Briarmall at Briarcrest Dr<br>score 3.36 · active inlets 6 · poor/failed 2 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4252bc0353e2456829179c410030803d = L.circleMarker(
+                [29.44234846603862, -98.41786883335962],
+                {"bubblingMouseEvents": true, "color": "#485d86", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#485d86", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.965763195435093, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_4252bc0353e2456829179c410030803d.bindTooltip(
+                `<div>
+                     #76 Creekview W of Currency<br>score -0.18 · active inlets 1 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2abe87e28cdd4de394a9d38d68cfd636 = L.circleMarker(
+                [29.539618323603786, -98.4577092267994],
+                {"bubblingMouseEvents": true, "color": "#53567b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#53567b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.427960057061341, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2abe87e28cdd4de394a9d38d68cfd636.bindTooltip(
+                `<div>
+                     #39 Bitters Rd 175 ft W of NE Entrance Rd<br>score 0.54 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ea167a3a039c37fdcd418a1a41641728 = L.circleMarker(
+                [29.554423138637066, -98.37904926274996],
+                {"bubblingMouseEvents": true, "color": "#465e87", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#465e87", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.895149786019971, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_ea167a3a039c37fdcd418a1a41641728.bindTooltip(
+                `<div>
+                     #81 Old OConnor N of Lookout Rd<br>score -0.29 · active inlets 0 · poor/failed 0 · drainage projects 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8308d8d6279a25200e3c04c8ba7222fb = L.circleMarker(
+                [29.46281228707762, -98.59913422714877],
+                {"bubblingMouseEvents": true, "color": "#952c40", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#952c40", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.111269614835948, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_8308d8d6279a25200e3c04c8ba7222fb.bindTooltip(
+                `<div>
+                     #5 Darwin between Kepler & Kettering<br>score 4.72 · active inlets 47 · poor/failed 4 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f16c308aade4997e4b735714112707dc = L.circleMarker(
+                [29.411612497052214, -98.6149461945115],
+                {"bubblingMouseEvents": true, "color": "#2d6e9e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d6e9e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.880884450784594, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_f16c308aade4997e4b735714112707dc.bindTooltip(
+                `<div>
+                     #139 Arvil<br>score -1.87 · active inlets 6 · poor/failed 0 · drainage projects 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6285663aac64174e23f925cfa502705b = L.circleMarker(
+                [29.408869341634595, -98.41828786013846],
+                {"bubblingMouseEvents": true, "color": "#43608a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43608a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.766761768901569, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6285663aac64174e23f925cfa502705b.bindTooltip(
+                `<div>
+                     #91 Rice Rd at Salado Creek<br>score -0.49 · active inlets 22 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa02efd583deecfbd2a5338996a29965 = L.circleMarker(
+                [29.29862562221534, -98.41327627920823],
+                {"bubblingMouseEvents": true, "color": "#5c5073", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5c5073", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.793865905848788, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_aa02efd583deecfbd2a5338996a29965.bindTooltip(
+                `<div>
+                     #24 Mickey Rd Between S Blue Wing Rd and Bald Eagle Hts<br>score 1.11 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4a03ae17c382d7a7a4498cc336f1c49 = L.circleMarker(
+                [29.364171690126167, -98.36411715376298],
+                {"bubblingMouseEvents": true, "color": "#465e87", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#465e87", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.901569186875891, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_b4a03ae17c382d7a7a4498cc336f1c49.bindTooltip(
+                `<div>
+                     #79 New Sulphur Springs N of Lodi<br>score -0.28 · active inlets 0 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f4660b7855f7ccf11517ab2b8251c0c = L.circleMarker(
+                [29.55957731245188, -98.4193561960421],
+                {"bubblingMouseEvents": true, "color": "#3c6590", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3c6590", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.477888730385164, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7f4660b7855f7ccf11517ab2b8251c0c.bindTooltip(
+                `<div>
+                     #114 Thousand Oaks south of Wetmore<br>score -0.94 · active inlets 7 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb0197abe15393056b34606796b89283 = L.circleMarker(
+                [29.484256619880785, -98.49003375974013],
+                {"bubblingMouseEvents": true, "color": "#2b70a0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b70a0", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.765335235378031, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_cb0197abe15393056b34606796b89283.bindTooltip(
+                `<div>
+                     #143 Contour Drive 500 ft E of McCullough<br>score -2.05 · active inlets 18 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a4f628a4de3dedc0228c871eba802f2 = L.circleMarker(
+                [29.563165417317897, -98.62766710548223],
+                {"bubblingMouseEvents": true, "color": "#3d6590", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3d6590", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.503566333808845, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7a4f628a4de3dedc0228c871eba802f2.bindTooltip(
+                `<div>
+                     #112 Old Babcock Rd 2300 ft S of Nickle<br>score -0.9 · active inlets 4 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6b427e953da1d3579eca3038df42e80 = L.circleMarker(
+                [29.570699093124844, -98.40980455552],
+                {"bubblingMouseEvents": true, "color": "#4d5a81", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4d5a81", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.171184022824536, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a6b427e953da1d3579eca3038df42e80.bindTooltip(
+                `<div>
+                     #58 Stahl Rd N of Bell<br>score 0.14 · active inlets 1 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49215b6aad3257c408f707bfcfef3316 = L.circleMarker(
+                [29.406365120936385, -98.62657385379678],
+                {"bubblingMouseEvents": true, "color": "#614e6f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#614e6f", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.98002853067047, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_49215b6aad3257c408f707bfcfef3316.bindTooltip(
+                `<div>
+                     #21 Westfield<br>score 1.4 · active inlets 7 · poor/failed 1 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9db559e2802118ab1f5cab5307633158 = L.circleMarker(
+                [29.43625760207749, -98.62901312178971],
+                {"bubblingMouseEvents": true, "color": "#3f638e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3f638e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.5934379457917265, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_9db559e2802118ab1f5cab5307633158.bindTooltip(
+                `<div>
+                     #106 W Commerce between Pinn Rd and Military<br>score -0.76 · active inlets 0 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_33389853343db0a47756b887217b4bf0 = L.circleMarker(
+                [29.510811768483112, -98.44455505254756],
+                {"bubblingMouseEvents": true, "color": "#41628c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41628c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.696148359486449, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_33389853343db0a47756b887217b4bf0.bindTooltip(
+                `<div>
+                     #95 Oak Glen at Haskin<br>score -0.6 · active inlets 14 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a897e331d5ef6af6fade4f8a164f8eb4 = L.circleMarker(
+                [29.5323993397567, -98.59480924069443],
+                {"bubblingMouseEvents": true, "color": "#386894", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#386894", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.304564907275321, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a897e331d5ef6af6fade4f8a164f8eb4.bindTooltip(
+                `<div>
+                     #121 Encino Park 2000 ft SW of Southwell<br>score -1.21 · active inlets 14 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ef555cf968b903d20aad73231b959d76 = L.circleMarker(
+                [29.243012315231066, -98.49867532348604],
+                {"bubblingMouseEvents": true, "color": "#a32433", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a32433", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.676176890156917, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_ef555cf968b903d20aad73231b959d76.bindTooltip(
+                `<div>
+                     #4 Pleasanton Rd Between Trumbo Road and Neal Road<br>score 5.6 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_69088e8ab81bcd606f85e9e4bde62192 = L.circleMarker(
+                [29.41913550922776, -98.64505677089565],
+                {"bubblingMouseEvents": true, "color": "#3f638e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3f638e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.5934379457917265, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_69088e8ab81bcd606f85e9e4bde62192.bindTooltip(
+                `<div>
+                     #107 Meadow Way 450 ft N of Marbach Rd<br>score -0.76 · active inlets 53 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb63dd3361c7723e31f138cf4e2e3a29 = L.circleMarker(
+                [29.490854762525846, -98.28925729622476],
+                {"bubblingMouseEvents": true, "color": "#50597f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#50597f", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.273894436519258, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_cb63dd3361c7723e31f138cf4e2e3a29.bindTooltip(
+                `<div>
+                     #51 N Graytown Rd at Tributary C to Salitrillo Creek<br>score 0.3 · active inlets 4 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4303a79e60df062f9870eb98867394d = L.circleMarker(
+                [29.537694369111943, -98.6858409814931],
+                {"bubblingMouseEvents": true, "color": "#3b6691", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3b6691", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.432952924393723, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a4303a79e60df062f9870eb98867394d.bindTooltip(
+                `<div>
+                     #116 Braun Rd 1300 ft NE of FM 1604<br>score -1.01 · active inlets 8 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47320eeba6b39c3dd33a301cf3f3426d = L.circleMarker(
+                [29.48175910661614, -98.4196471393406],
+                {"bubblingMouseEvents": true, "color": "#4c5b82", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c5b82", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.1455064194008555, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_47320eeba6b39c3dd33a301cf3f3426d.bindTooltip(
+                `<div>
+                     #62 Cougar Way<br>score 0.1 · active inlets 3 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2219857fa3b80ce333f21ccbf512b7b8 = L.circleMarker(
+                [29.354495626139943, -98.47360797647781],
+                {"bubblingMouseEvents": true, "color": "#40638d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#40638d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.631954350927247, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2219857fa3b80ce333f21ccbf512b7b8.bindTooltip(
+                `<div>
+                     #102 Mission Parkway at San Antonio River<br>score -0.7 · active inlets 9 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_59e2b9489a52b318fa3b3632954d2cf4 = L.circleMarker(
+                [29.346334785547143, -98.46370914282862],
+                {"bubblingMouseEvents": true, "color": "#52577d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#52577d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.35734664764622, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_59e2b9489a52b318fa3b3632954d2cf4.bindTooltip(
+                `<div>
+                     #45 Mission Parkway<br>score 0.43 · active inlets 1 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ae24cff002891c7aa4aa785ccf83515 = L.circleMarker(
+                [29.55400902387843, -98.488070896278],
+                {"bubblingMouseEvents": true, "color": "#3a6692", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3a6692", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.400855920114123, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6ae24cff002891c7aa4aa785ccf83515.bindTooltip(
+                `<div>
+                     #117 North Loop 150 ft SE of W North Loop Rd<br>score -1.06 · active inlets 2 · poor/failed 0 · drainage projects 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2192ab9fc589b114ec40312b15087468 = L.circleMarker(
+                [29.487230659928773, -98.69148278191332],
+                {"bubblingMouseEvents": true, "color": "#4d5a81", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4d5a81", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.190442225392297, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2192ab9fc589b114ec40312b15087468.bindTooltip(
+                `<div>
+                     #56 Easterling S of Culebra<br>score 0.17 · active inlets 1 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81fbf9c9fbaf00695ccf72ade5a98a84 = L.circleMarker(
+                [29.35878066462567, -98.34312879258245],
+                {"bubblingMouseEvents": true, "color": "#922e42", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#922e42", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.002139800285306, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_81fbf9c9fbaf00695ccf72ade5a98a84.bindTooltip(
+                `<div>
+                     #6 New Sulphur Springs<br>score 4.55 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65146c7db170c529c48c055603740775 = L.circleMarker(
+                [29.408046182780026, -98.62656912706674],
+                {"bubblingMouseEvents": true, "color": "#575478", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#575478", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.594864479315264, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_65146c7db170c529c48c055603740775.bindTooltip(
+                `<div>
+                     #30 Martinique<br>score 0.8 · active inlets 19 · poor/failed 1 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f6b114b97d8b945aa31259f8ea64f320 = L.circleMarker(
+                [29.566498893298185, -98.63089367939973],
+                {"bubblingMouseEvents": true, "color": "#396793", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#396793", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.355920114122682, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_f6b114b97d8b945aa31259f8ea64f320.bindTooltip(
+                `<div>
+                     #120 Old Babcock Rd 500 ft S of Nickle<br>score -1.13 · active inlets 7 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a870bfbf33220c1b6f0caf270c8e2b83 = L.circleMarker(
+                [29.59263391078249, -98.46413204752426],
+                {"bubblingMouseEvents": true, "color": "#54557a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#54557a", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.472895863052782, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a870bfbf33220c1b6f0caf270c8e2b83.bindTooltip(
+                `<div>
+                     #36 Springhill<br>score 0.61 · active inlets 37 · poor/failed 1 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c5ed5803aab403000f5e7906061e6b9 = L.circleMarker(
+                [29.511041918611777, -98.58605605209776],
+                {"bubblingMouseEvents": true, "color": "#654b6b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#654b6b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.140513552068473, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1c5ed5803aab403000f5e7906061e6b9.bindTooltip(
+                `<div>
+                     #18 Medical Dr 2000 ft W of Wurzbach<br>score 1.65 · active inlets 11 · poor/failed 1 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23a8abeb2fde3cdbe1826a015628f76d = L.circleMarker(
+                [29.503126289294244, -98.49173228700411],
+                {"bubblingMouseEvents": true, "color": "#366996", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#366996", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.22111269614836, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_23a8abeb2fde3cdbe1826a015628f76d.bindTooltip(
+                `<div>
+                     #131 McCullough at Barbara<br>score -1.34 · active inlets 19 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb11d5bf8d99008994505daf860e71d2 = L.circleMarker(
+                [29.353614440697577, -98.47160702969981],
+                {"bubblingMouseEvents": true, "color": "#446089", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#446089", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.79885877318117, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_eb11d5bf8d99008994505daf860e71d2.bindTooltip(
+                `<div>
+                     #89 Mission Parkway S of Napier<br>score -0.44 · active inlets 9 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a672c4872894e45d3be881803a20fbe = L.circleMarker(
+                [29.574803570667463, -98.40587002957602],
+                {"bubblingMouseEvents": true, "color": "#4e5980", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4e5980", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.216119828815978, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0a672c4872894e45d3be881803a20fbe.bindTooltip(
+                `<div>
+                     #54 Jung Rd N of Stahl Rd<br>score 0.21 · active inlets 0 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e04e6b6d1dc87f2f00769c078a313fc8 = L.circleMarker(
+                [29.479860898838446, -98.47912500479153],
+                {"bubblingMouseEvents": true, "color": "#575478", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#575478", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.588445078459344, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_e04e6b6d1dc87f2f00769c078a313fc8.bindTooltip(
+                `<div>
+                     #32 Devine 400 ft N of Dick Friedrich<br>score 0.79 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d972ab6b70d3ce1568f3f93f1eb3bac = L.circleMarker(
+                [29.561982528705304, -98.54058422199941],
+                {"bubblingMouseEvents": true, "color": "#50587e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#50587e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.293152639087019, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1d972ab6b70d3ce1568f3f93f1eb3bac.bindTooltip(
+                `<div>
+                     #49 George Rd W of NW Military Hwy<br>score 0.33 · active inlets 1 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5acad2f7e55afec8d65032c9fa8f7be = L.circleMarker(
+                [29.320341069201895, -98.43391511495619],
+                {"bubblingMouseEvents": true, "color": "#41628c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41628c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.683309557774608, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_f5acad2f7e55afec8d65032c9fa8f7be.bindTooltip(
+                `<div>
+                     #98 Nancy Carole Way 300 ft W of Southton<br>score -0.62 · active inlets 13 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b6814206c71efed065f577b511c435e = L.circleMarker(
+                [29.49100561053501, -98.49171618426179],
+                {"bubblingMouseEvents": true, "color": "#40628c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#40628c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.6576319543509275, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7b6814206c71efed065f577b511c435e.bindTooltip(
+                `<div>
+                     #100 McCullough 500 ft S of Jackson Keller<br>score -0.66 · active inlets 4 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7069b8a81355fbb16cae16f008e9c9e9 = L.circleMarker(
+                [29.511859689292763, -98.4094993353057],
+                {"bubblingMouseEvents": true, "color": "#465f88", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#465f88", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.875891583452211, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7069b8a81355fbb16cae16f008e9c9e9.bindTooltip(
+                `<div>
+                     #82 Vicar 100 ft E of Perrin Beitel<br>score -0.32 · active inlets 2 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_87a6b39ef74e9d89efa5d82c6e7d377a = L.circleMarker(
+                [29.55505464287088, -98.49532610767172],
+                {"bubblingMouseEvents": true, "color": "#2872a2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2872a2", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.669044222539229, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_87a6b39ef74e9d89efa5d82c6e7d377a.bindTooltip(
+                `<div>
+                     #147 W North Loop Rd 1300 ft E of West Ave<br>score -2.2 · active inlets 23 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_89f41f6cc16f2bf895b811de628e1d56 = L.circleMarker(
+                [29.367365929621776, -98.6434091129397],
+                {"bubblingMouseEvents": true, "color": "#5f4f71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5f4f71", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.90941512125535, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_89f41f6cc16f2bf895b811de628e1d56.bindTooltip(
+                `<div>
+                     #22 Ray Ellison at Hidden Valley<br>score 1.29 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bfb84ac793ceafba3ecba098f2ed80fe = L.circleMarker(
+                [29.375920173097608, -98.64787701604783],
+                {"bubblingMouseEvents": true, "color": "#485d85", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#485d85", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.978601997146933, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_bfb84ac793ceafba3ecba098f2ed80fe.bindTooltip(
+                `<div>
+                     #75 Ray Ellison at Old Valley Hi<br>score -0.16 · active inlets 7 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2c5ace143bcd273dac2249376f011962 = L.circleMarker(
+                [29.5369942960373, -98.59317974730985],
+                {"bubblingMouseEvents": true, "color": "#4e5980", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4e5980", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.216119828815978, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2c5ace143bcd273dac2249376f011962.bindTooltip(
+                `<div>
+                     #55 Verbena 1000 ft W of Southwell<br>score 0.21 · active inlets 3 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2067efcfd372d3cb076eb1868616fac1 = L.circleMarker(
+                [29.572118723157025, -98.62846282998771],
+                {"bubblingMouseEvents": true, "color": "#2673a4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2673a4", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.585592011412269, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2067efcfd372d3cb076eb1868616fac1.bindTooltip(
+                `<div>
+                     #148 Hausman Rd at Roadrunner<br>score -2.33 · active inlets 24 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3340c3760c367a67f9f9cf6cb0a80220 = L.circleMarker(
+                [29.45957672630437, -98.56941261471167],
+                {"bubblingMouseEvents": true, "color": "#008cc8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008cc8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.0, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_3340c3760c367a67f9f9cf6cb0a80220.bindTooltip(
+                `<div>
+                     #156 Dell and Freeman<br>score -4.8 · active inlets 66 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae9028b08a473a0064645ad5db8d1b50 = L.circleMarker(
+                [29.471435591188055, -98.59863669408796],
+                {"bubblingMouseEvents": true, "color": "#2a70a1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a70a1", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.739657631954351, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_ae9028b08a473a0064645ad5db8d1b50.bindTooltip(
+                `<div>
+                     #144 Oak Knoll<br>score -2.09 · active inlets 19 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a5715328570a79b1809677f9588a705 = L.circleMarker(
+                [29.484869593978036, -98.41677415750979],
+                {"bubblingMouseEvents": true, "color": "#5e4f72", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5e4f72", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.858059914407988, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2a5715328570a79b1809677f9588a705.bindTooltip(
+                `<div>
+                     #23 Rittiman Rd at Salado Creek<br>score 1.21 · active inlets 13 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f664480be1d8d0dc8c5a5901097cb750 = L.circleMarker(
+                [29.48567126172229, -98.44284213995438],
+                {"bubblingMouseEvents": true, "color": "#6f4562", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6f4562", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.5641940085592, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_f664480be1d8d0dc8c5a5901097cb750.bindTooltip(
+                `<div>
+                     #15 Blakely 200 ft W of Vandiver<br>score 2.31 · active inlets 4 · poor/failed 1 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f9af82590d81eae819d78f49e8fec024 = L.circleMarker(
+                [29.289139714291263, -98.40861678826529],
+                {"bubblingMouseEvents": true, "color": "#446089", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#446089", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.81169757489301, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_f9af82590d81eae819d78f49e8fec024.bindTooltip(
+                `<div>
+                     #88 Southton Rd 4700 ft W of IH-37<br>score -0.42 · active inlets 4 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c86dbc0c5c7f0f9af711080b11ec3b62 = L.circleMarker(
+                [29.556974916048304, -98.49811408280048],
+                {"bubblingMouseEvents": true, "color": "#1e78ac", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1e78ac", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.232524964336662, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c86dbc0c5c7f0f9af711080b11ec3b62.bindTooltip(
+                `<div>
+                     #154 West Ave N of W North Loop Rd<br>score -2.88 · active inlets 24 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_170b9fa0bec60bc2bea28b19de64db5c = L.circleMarker(
+                [29.592716544259773, -98.46282909640722],
+                {"bubblingMouseEvents": true, "color": "#3a6692", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3a6692", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.388017118402282, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_170b9fa0bec60bc2bea28b19de64db5c.bindTooltip(
+                `<div>
+                     #118 Ledgestone at Mount Joy<br>score -1.08 · active inlets 29 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bdd4ba7d9dadcd3cc02c0e8342f96d2 = L.circleMarker(
+                [29.47762606928843, -98.37784078018382],
+                {"bubblingMouseEvents": true, "color": "#5b5174", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5b5174", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.742510699001427, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_2bdd4ba7d9dadcd3cc02c0e8342f96d2.bindTooltip(
+                `<div>
+                     #28 Gibbs Sprawl at Rosillo Creek<br>score 1.03 · active inlets 0 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_166e9a690c2b3e40aaf7caa9ee58cdd5 = L.circleMarker(
+                [29.57813689437777, -98.46895078633165],
+                {"bubblingMouseEvents": true, "color": "#4c5b82", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c5b82", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.1455064194008555, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_166e9a690c2b3e40aaf7caa9ee58cdd5.bindTooltip(
+                `<div>
+                     #63 Rio Seco 680 N of Brook Hollow<br>score 0.1 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc0d7a380b2c85b65af236841da1067f = L.circleMarker(
+                [29.532811184201307, -98.64287064446468],
+                {"bubblingMouseEvents": true, "color": "#485e86", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#485e86", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.9529243937232525, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_dc0d7a380b2c85b65af236841da1067f.bindTooltip(
+                `<div>
+                     #77 OP Schnabel Park<br>score -0.2 · active inlets 3 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e1b855e213acb513fdb8b0246e85e87 = L.circleMarker(
+                [29.572073899049368, -98.63073731835509],
+                {"bubblingMouseEvents": true, "color": "#2574a5", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2574a5", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.534236804564907, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6e1b855e213acb513fdb8b0246e85e87.bindTooltip(
+                `<div>
+                     #150 Hausman Rd 200 ft E of Babcock<br>score -2.41 · active inlets 27 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_67032362792675d95b025b24e7cf901a = L.circleMarker(
+                [29.432689300171702, -98.41361805411809],
+                {"bubblingMouseEvents": true, "color": "#465e87", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#465e87", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.901569186875891, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_67032362792675d95b025b24e7cf901a.bindTooltip(
+                `<div>
+                     #80 Kingkrest E of Longleaf<br>score -0.28 · active inlets 11 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_970555bbcb2a16c325e762c813f3eb32 = L.circleMarker(
+                [29.4507684765955, -98.42364729102871],
+                {"bubblingMouseEvents": true, "color": "#803a52", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#803a52", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.270328102710415, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_970555bbcb2a16c325e762c813f3eb32.bindTooltip(
+                `<div>
+                     #9 Old Seguin at Salado Creek<br>score 3.41 · active inlets 0 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_272f994b256e8364ba8f262346efeec6 = L.circleMarker(
+                [29.54359857328732, -98.41821931964562],
+                {"bubblingMouseEvents": true, "color": "#2f6d9c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2f6d9c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.957917261055634, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_272f994b256e8364ba8f262346efeec6.bindTooltip(
+                `<div>
+                     #135 Nacogdoches Rd at Bulverde<br>score -1.75 · active inlets 17 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae540c145cd038a57531e843391912cb = L.circleMarker(
+                [29.539615336428735, -98.45668332132612],
+                {"bubblingMouseEvents": true, "color": "#51587e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#51587e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.3188302425107, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_ae540c145cd038a57531e843391912cb.bindTooltip(
+                `<div>
+                     #47 NE Entrance Rd 215 ft N of Bitters<br>score 0.37 · active inlets 0 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_528240ab12f3e788a3ee272e29078ad1 = L.circleMarker(
+                [29.38516879679581, -98.45898818865369],
+                {"bubblingMouseEvents": true, "color": "#1b7aae", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1b7aae", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.129814550641941, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_528240ab12f3e788a3ee272e29078ad1.bindTooltip(
+                `<div>
+                     #155 Nopal N of Fair Ave<br>score -3.04 · active inlets 45 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa0654d51267aee24b27d77f29506612 = L.circleMarker(
+                [29.409828449652498, -98.62917506382793],
+                {"bubblingMouseEvents": true, "color": "#6a4766", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6a4766", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.371611982881598, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_fa0654d51267aee24b27d77f29506612.bindTooltip(
+                `<div>
+                     #17 Military and Westbriar<br>score 2.01 · active inlets 4 · poor/failed 1 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a4e29da87cdedb77073b7829b37e549 = L.circleMarker(
+                [29.341956751406475, -98.45464872848288],
+                {"bubblingMouseEvents": true, "color": "#446089", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#446089", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.79243937232525, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_0a4e29da87cdedb77073b7829b37e549.bindTooltip(
+                `<div>
+                     #90 Old Corpus Christi S of Henderson Ct<br>score -0.45 · active inlets 32 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffbbfdabfdb548714f8ce7c0d198fec4 = L.circleMarker(
+                [29.34510150817827, -98.45009044781487],
+                {"bubblingMouseEvents": true, "color": "#3d6490", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3d6490", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.509985734664765, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_ffbbfdabfdb548714f8ce7c0d198fec4.bindTooltip(
+                `<div>
+                     #111 Sidney Brooks Dr west of S New Braunfels<br>score -0.89 · active inlets 65 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9ff8c90de9f0f384af574c029f4c934 = L.circleMarker(
+                [29.36544862697726, -98.37218100468198],
+                {"bubblingMouseEvents": true, "color": "#3e648e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3e648e", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.567760342368046, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_d9ff8c90de9f0f384af574c029f4c934.bindTooltip(
+                `<div>
+                     #108 New Sulphur Springs E of Jasper<br>score -0.8 · active inlets 2 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b488345bcf48ca3a8a7dc4b0a00e4f8f = L.circleMarker(
+                [29.543899253971194, -98.5599845239512],
+                {"bubblingMouseEvents": true, "color": "#456089", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#456089", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.824536376604851, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_b488345bcf48ca3a8a7dc4b0a00e4f8f.bindTooltip(
+                `<div>
+                     #86 Vance Jackson S of Treehill<br>score -0.4 · active inlets 4 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c116d526527f51b746b6e3efc102a6c9 = L.circleMarker(
+                [29.407215766342542, -98.62657374950743],
+                {"bubblingMouseEvents": true, "color": "#5c5173", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5c5173", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.781027104136948, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c116d526527f51b746b6e3efc102a6c9.bindTooltip(
+                `<div>
+                     #25 Tallahasse<br>score 1.09 · active inlets 13 · poor/failed 1 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9815fa61c5f54feee254a4ab3e766763 = L.circleMarker(
+                [29.563879197761743, -98.52040547701117],
+                {"bubblingMouseEvents": true, "color": "#6b4766", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6b4766", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.403708987161199, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_9815fa61c5f54feee254a4ab3e766763.bindTooltip(
+                `<div>
+                     #16 Old Blanco Rd N of Voelcker<br>score 2.06 · active inlets 1 · poor/failed 1 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_845a1b4b651294b9851e83051644c8c9 = L.circleMarker(
+                [29.560642005239647, -98.6260763755039],
+                {"bubblingMouseEvents": true, "color": "#3c6590", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3c6590", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.484308131241084, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_845a1b4b651294b9851e83051644c8c9.bindTooltip(
+                `<div>
+                     #113 Old Babcock Rd 3700 ft S of Nickle<br>score -0.93 · active inlets 6 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa8b7ae519b0f479861a3f2847d8b710 = L.circleMarker(
+                [29.38651374052341, -98.45798764572626],
+                {"bubblingMouseEvents": true, "color": "#2276a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2276a8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.399429386590585, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_fa8b7ae519b0f479861a3f2847d8b710.bindTooltip(
+                `<div>
+                     #152 Hiawatha E of Nopal<br>score -2.62 · active inlets 39 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4c116c0f6456bd3c5ae54f9789808e4b = L.circleMarker(
+                [29.553229176579155, -98.6557536543424],
+                {"bubblingMouseEvents": true, "color": "#40638d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#40638d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.6255349500713265, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_4c116c0f6456bd3c5ae54f9789808e4b.bindTooltip(
+                `<div>
+                     #103 S Hausman Rd 3300 ft N of Prue Rd<br>score -0.71 · active inlets 0 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4637a0d778be7fd2168b18fa7529c61 = L.circleMarker(
+                [29.56758683378046, -98.36522464269446],
+                {"bubblingMouseEvents": true, "color": "#42618b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#42618b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.715406562054207, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c4637a0d778be7fd2168b18fa7529c61.bindTooltip(
+                `<div>
+                     #93 Judson Rd at Lookout Rd<br>score -0.57 · active inlets 5 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6142fd2d3b73d8865430974d9a9a32bc = L.circleMarker(
+                [29.556529333883983, -98.48145665506526],
+                {"bubblingMouseEvents": true, "color": "#7b3d57", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7b3d57", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.052068473609129, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_6142fd2d3b73d8865430974d9a9a32bc.bindTooltip(
+                `<div>
+                     #12 Maltsberger Ln 925 ft E of San Pedro<br>score 3.07 · active inlets 8 · poor/failed 2 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c4e61c45b1229d41b90801d73e32926 = L.circleMarker(
+                [29.306888015373676, -98.40849201615953],
+                {"bubblingMouseEvents": true, "color": "#4c5b82", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c5b82", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.126248216833096, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_3c4e61c45b1229d41b90801d73e32926.bindTooltip(
+                `<div>
+                     #65 Blue Wing Rd between IH 37 and Mickey Rd<br>score 0.07 · active inlets 4 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be67f4648a476aa139a98bd9f5762096 = L.circleMarker(
+                [29.466496832255157, -98.48827743076293],
+                {"bubblingMouseEvents": true, "color": "#495c84", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#495c84", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.023537803138375, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_be67f4648a476aa139a98bd9f5762096.bindTooltip(
+                `<div>
+                     #73 Hildebrand at Kendall<br>score -0.09 · active inlets 6 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2786b6b1f64db2212657c636cccfe77 = L.circleMarker(
+                [29.31726375209266, -98.44324655020766],
+                {"bubblingMouseEvents": true, "color": "#53567b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#53567b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.421540656205421, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_c2786b6b1f64db2212657c636cccfe77.bindTooltip(
+                `<div>
+                     #40 Villamain and Shane Rd at Railroad<br>score 0.53 · active inlets 2 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d44481bf5c62f05e31132f7a71b45e8 = L.circleMarker(
+                [29.374787511049004, -98.64726168238165],
+                {"bubblingMouseEvents": true, "color": "#50587f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#50587f", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.280313837375179, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_5d44481bf5c62f05e31132f7a71b45e8.bindTooltip(
+                `<div>
+                     #50 Ray Ellison 300' N of Medina Base<br>score 0.31 · active inlets 4 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7155365bc05983cb5e172de608772c5e = L.circleMarker(
+                [29.59684639615835, -98.45967300727263],
+                {"bubblingMouseEvents": true, "color": "#376895", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#376895", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.25320970042796, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_7155365bc05983cb5e172de608772c5e.bindTooltip(
+                `<div>
+                     #125 Sugar Crest<br>score -1.29 · active inlets 17 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48bf76a5cbcee404a4cd26d9be55df20 = L.circleMarker(
+                [29.47675171065821, -98.59003216836554],
+                {"bubblingMouseEvents": true, "color": "#2e6e9d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e6e9d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.9065620542082735, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_48bf76a5cbcee404a4cd26d9be55df20.bindTooltip(
+                `<div>
+                     #137 Parkway 500 ft E of Callaghan<br>score -1.83 · active inlets 25 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44847eb9a3c95ebaf7d30890414e4f43 = L.circleMarker(
+                [29.466298200126293, -98.5736779347362],
+                {"bubblingMouseEvents": true, "color": "#52577d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#52577d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.36376604850214, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_44847eb9a3c95ebaf7d30890414e4f43.bindTooltip(
+                `<div>
+                     #44 W Quill Dr at Heather Hill<br>score 0.44 · active inlets 3 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38257cbe6eb167d528bbf35c745f6110 = L.circleMarker(
+                [29.47548527210902, -98.65320390607114],
+                {"bubblingMouseEvents": true, "color": "#40638d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#40638d", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.6255349500713265, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_38257cbe6eb167d528bbf35c745f6110.bindTooltip(
+                `<div>
+                     #104 Old Grissom 500 ft E of Culebra<br>score -0.71 · active inlets 8 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_01be1af1e1e3fe89ea66cf893299bb2d = L.circleMarker(
+                [29.500129751255926, -98.4216931655442],
+                {"bubblingMouseEvents": true, "color": "#4b5b82", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b5b82", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.106990014265335, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_01be1af1e1e3fe89ea66cf893299bb2d.bindTooltip(
+                `<div>
+                     #66 Ira Lee N of Austin Hwy<br>score 0.04 · active inlets 2 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1593dd7c304b8bd71bfef22983afb7eb = L.circleMarker(
+                [29.543109324344485, -98.3823116470799],
+                {"bubblingMouseEvents": true, "color": "#366996", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#366996", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.24679029957204, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_1593dd7c304b8bd71bfef22983afb7eb.bindTooltip(
+                `<div>
+                     #127 Weidner 500 ft N of Schertz<br>score -1.3 · active inlets 13 · poor/failed 0 · drainage projects 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf45698d91ff2461427ca61ec8de089f = L.circleMarker(
+                [29.554799792169973, -98.50020242404419],
+                {"bubblingMouseEvents": true, "color": "#2176a9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2176a9", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.373751783166904, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_bf45698d91ff2461427ca61ec8de089f.bindTooltip(
+                `<div>
+                     #153 West Ave at W North Loop Rd<br>score -2.66 · active inlets 20 · poor/failed 0 · drainage projects 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_220dcf070b603e73d188ed7800b00afe = L.circleMarker(
+                [29.500053753439897, -98.42124386624263],
+                {"bubblingMouseEvents": true, "color": "#4b5c83", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4b5c83", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.074893009985735, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_220dcf070b603e73d188ed7800b00afe.bindTooltip(
+                `<div>
+                     #69 Austin Hwy E of Ira Lee<br>score -0.01 · active inlets 2 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38d98d0ba5dd409faeb660823c49cdbd = L.circleMarker(
+                [29.578466440461806, -98.41999371142997],
+                {"bubblingMouseEvents": true, "color": "#2a71a1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a71a1", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.720399429386591, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_38d98d0ba5dd409faeb660823c49cdbd.bindTooltip(
+                `<div>
+                     #146 Bulverde Rd at Mud Creek Tributary A<br>score -2.12 · active inlets 24 · poor/failed 0 · drainage projects 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b7a13863445f6a9edcb3d32f796069b4 = L.circleMarker(
+                [29.593140432136458, -98.60246307977096],
+                {"bubblingMouseEvents": true, "color": "#575478", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#575478", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5691868758915835, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_b7a13863445f6a9edcb3d32f796069b4.bindTooltip(
+                `<div>
+                     #33 Old Fredericksburg Rd North of 1604<br>score 0.76 · active inlets 0 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8882f1b3d91f782aea552f40d64c6b85 = L.circleMarker(
+                [29.28386097571551, -98.52054297270674],
+                {"bubblingMouseEvents": true, "color": "#823951", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#823951", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.321683309557773, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_8882f1b3d91f782aea552f40d64c6b85.bindTooltip(
+                `<div>
+                     #8 Mauermann and Comanche Creek<br>score 3.49 · active inlets 0 · poor/failed 0 · drainage projects 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e449d23109890cd09db92e6cc11b3095 = L.circleMarker(
+                [29.473436033826882, -98.59859814647368],
+                {"bubblingMouseEvents": true, "color": "#2b70a0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b70a0", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.7781740370898715, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_e449d23109890cd09db92e6cc11b3095.bindTooltip(
+                `<div>
+                     #142 Silvercrest between Woodside and Horseshoe<br>score -2.03 · active inlets 25 · poor/failed 0 · drainage projects 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a60b7b23bfcbb263f2161c0be55794eb = L.circleMarker(
+                [29.47079151145228, -98.5948959707952],
+                {"bubblingMouseEvents": true, "color": "#386894", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#386894", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.304564907275321, "stroke": true, "weight": 1}
+            ).addTo(map_7e3a1f8e2bad9c94bc224ee7c82b4108);
+        
+    
+            circle_marker_a60b7b23bfcbb263f2161c0be55794eb.bindTooltip(
+                `<div>
+                     #122 Majestic<br>score -1.21 · active inlets 9 · poor/failed 0 · drainage projects 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
